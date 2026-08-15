@@ -1,8 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background:  #ffffff;
   --foreground: #171717;
+  :root {
+  /* Primary */
+  --color-primary: #705d00;
+  --color-primary-container: #ffd700;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #705e00;
+  --color-primary-fixed: #ffe16d;
+  --color-primary-fixed-dim: #e9c400;
+  --color-on-primary-fixed: #221b00;
+  --color-on-primary-fixed-variant: #544600;
+  --color-inverse-primary: #e9c400;
+
+  /* Secondary */
+  --color-secondary: #b51b0b;
+  --color-secondary-container: #d93723;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #fffbff;
+  --color-secondary-fixed: #ffdad4;
+  --color-secondary-fixed-dim: #ffb4a7;
+  --color-on-secondary-fixed: #400200;
+  --color-on-secondary-fixed-variant: #920800;
+
+  /* Tertiary */
+  --color-tertiary: #3a5f94;
+  --color-tertiary-container: #c8dbff;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #3b6095;
+  --color-tertiary-fixed: #d5e3ff;
+  --color-tertiary-fixed-dim: #a7c8ff;
+  --color-on-tertiary-fixed: #001b3c;
+  --color-on-tertiary-fixed-variant: #1f477b;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Surface */
+  --color-surface: #f9f9f9;
+  --color-surface-dim: #dadada;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3f3;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+  --color-surface-variant: #e2e2e2;
+  --color-on-surface: #1b1b1b;
+  --color-on-surface-variant: #4d4732;
+  --color-surface-tint: #705d00;
+
+  /* Inverse surface */
+  --color-inverse-surface: #303030;
+  --color-inverse-on-surface: #f1f1f1;
+
+  /* Background */
+  --color-background: #f9f9f9;
+  --color-on-background: #1b1b1b;
+
+  /* Outline */
+  --color-outline: #7e775f;
+  --color-outline-variant: #d0c6ab;
+
+  /* Neobrutalist accent (used for border/shadow) */
+  --color-ink: #1b1b1b;
+}
 }
 
 @theme inline {
@@ -12,12 +79,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
