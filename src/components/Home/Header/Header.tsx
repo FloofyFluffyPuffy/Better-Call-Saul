@@ -4,11 +4,13 @@ import Navigation from './Navigation'
 
 const Header = () => {
   return (
-    <header className='flex justify-between border-b-4 border-black items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-red-500'>
-        <img className='w-20 h-12' src="/assets/saul_logo_black.png" alt="Logo" />
+    <header className='mx-[0.5%] h-18 mt-[0.5%] flex justify-between border-3 border-black items-center shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-[#E23D28]'>
+        <img className='w-20 h-12 ml-2' src="/assets/saul_logo_black.png" alt="Logo" />
         <Navigation/>
-        <a href="tel:+15551234567">
-        Call Now: (555) 123-4567
+        <a className='mr-2' href="tel:+15551234567">
+        <div className='bg-[#3A5F94] font-headline-lg text-white tracking-tighter px-4 py-2 mb-1 text-center flex items-center justify-center border-3 rotate-[5deg] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 cursor-pointer'>
+          CALL NOW!
+        </div>
         </a>
     </header>
   )
