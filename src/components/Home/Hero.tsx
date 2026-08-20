@@ -68,8 +68,10 @@ const HomeHero = () => {
           ))}
         </div>
 
-        <div className="col-span-1 border-3 place-items-center border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-[#FFD700] flex justify-center items-center">
-          <img src="/assets/SaulPoint.png" className="w-120 h-125" />
+        <div className="col-span-1 border-3 place-items-center p-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white flex justify-center items-center">
+          <div className=' border-black sauloffice bg-18'>
+            <img src="/assets/SaulPoint.png" className="w-100 h-100" />
+          </div>
         </div>
       </div>
     </section>
