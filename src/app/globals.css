@@ -56,7 +56,10 @@
 }
 
 body {
-  background: var(--background);
+  background-image: var(--background);
+  background-size: var(--background-size);
+  background-repeat: repeat;
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-body-md), Arial, Helvetica, sans-serif;
 }
@@ -105,7 +108,6 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath fill='%23ffffff' fill-opacity='0.9' d='M14 3l1.8 5.3L21 10l-4.4 3.5L18 19l-4-3.1L10 19l1.4-5.5L7 10l5.2-1.7z'/%3E%3Ccircle cx='24' cy='6' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='4' cy='22' r='1' fill='%23ffffff'/%3E%3C/svg%3E");
   background-size: 28px 28px;
 }
-
 
 .bg-tie-2 {
   background-color: #1b1a1e;
