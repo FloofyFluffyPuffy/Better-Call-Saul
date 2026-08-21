@@ -15,7 +15,7 @@ const navItems = [
       { name: "PERSONAL INJURY", id: "#personalinjury", page: "/personalinjury" },
     ],
   },
-  { label: "TESTIMONIALS", page: "/about" },
+  { label: "TESTIMONIALS", page: "/testimonials" },
   {
     label: "MORE",
     dropdown: [
@@ -88,8 +88,8 @@ export default function Header() {
             />
           </Link>
 
-          <div className="hidden flex-1 items-center justify-center lg:flex">
-            <p className="font-headline-lg text-2xl uppercase leading-none tracking-tight text-yellow-300 [text-shadow:2px_2px_0_#000] xl:text-3xl">
+          <div className="flex min-w-0 flex-1 items-center justify-center">
+            <p className="whitespace-nowrap font-headline-lg text-base uppercase leading-none tracking-tight text-yellow-300 [text-shadow:2px_2px_0_#000] sm:text-2xl xl:text-3xl">
               Albuquerque&apos;s <span className="text-white">#1</span> Attorney
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                    className="flex cursor-pointer items-center gap-1 border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                    className="flex cursor-pointer duration-300 items-center gap-1 border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
                     aria-expanded={openMenu === item.label}
                   >
                     {item.label}
@@ -114,7 +114,7 @@ export default function Header() {
                   key={item.label}
                   href={item.page ?? "/"}
                   onClick={closeMenu}
-                  className="border-[3px] border-black bg-black px-3 py-2 font-label-bold text-xs tracking-wide text-yellow-300 transition-colors hover:bg-yellow-300 hover:text-black"
+                  className="border-[3px] border-black bg-yellow-300 duration-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                 >
                   {item.label}
                 </Link>
@@ -124,7 +124,7 @@ export default function Header() {
 
           <a
             href="tel:+15551234567"
-            className="hidden rotate-[3deg] border-[3px] border-black bg-[#3A5F94] px-4 py-2 font-headline-lg text-xl leading-none tracking-tight text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:rotate-0 hover:shadow-none sm:block"
+            className="hidden duration-300 rotate-[3deg] border-[3px] border-black bg-[#3A5F94] px-4 py-2 font-headline-lg text-xl leading-none tracking-tight text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px]  hover:shadow-none sm:block"
           >
             CALL NOW!
           </a>
@@ -160,7 +160,7 @@ export default function Header() {
                     {openMenu === item.label && <Dropdown items={item.dropdown} onSelect={handleSectionLink} mobile />}
                   </div>
                 ) : (
-                  <Link key={item.label} href={item.page ?? "/"} onClick={closeMenu} className="border-[3px] border-black bg-white px-3 py-2 font-label-bold text-sm text-black">
+                  <Link key={item.label} href={item.page ?? "/"} onClick={closeMenu} className="border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
                     {item.label}
                   </Link>
                 ),
