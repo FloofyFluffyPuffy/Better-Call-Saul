@@ -1,355 +1,189 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContextData } from "@/code/Contexts/Provider";
 
 const navItems = [
-  { label: "Home", page: "/", active: true },
+  { label: "HOME", page: "/" },
   {
-    label: "Practice Areas",
-    page: "#Practice Areas",
-    active: false,
+    label: "PRACTICE AREAS",
     dropdown: [
-      { name: "Criminal Defense", id: "#criminaldefense", page: "/criminaldefense" },
-      { name: "Elder Law", id: "#elderlaw", page: "/elderlaw" },
-      { name: "Personal Injury", id: "#personalinjury", page: "/personalinjury" },
+      { name: "CRIMINAL DEFENSE", id: "#criminaldefense", page: "/criminaldefense" },
+      { name: "ELDER LAW", id: "#elderlaw", page: "/elderlaw" },
+      { name: "PERSONAL INJURY", id: "#personalinjury", page: "/personalinjury" },
     ],
   },
-  { label: "Testimonials", page: "/about", active: false },
+  { label: "TESTIMONIALS", page: "/about" },
   {
-    label: "Others",
-    page: "#others",
-    active: false,
+    label: "MORE",
     dropdown: [
-      { name: "Reviews", id: "#review", page: "/" },
-      { name: "Gallery", id: "#gallery", page: "/" },
-      { name: "Location", id: "#location", page: "/" },
+      { name: "REVIEWS", id: "#review", page: "/" },
+      { name: "GALLERY", id: "#gallery", page: "/" },
+      { name: "LOCATION", id: "#location", page: "/" },
     ],
   },
 ];
 
-function ChevronIcon({ open }: { open: boolean }) {
+type DropdownItem = { name: string; id: string; page: string };
+
+type NavItem = {
+  label: string;
+  page?: string;
+  dropdown?: DropdownItem[];
+};
+
+function Chevron({ open }: { open: boolean }) {
   return (
     <svg
-      className={`ml-1 h-4 w-4 transition-transform duration-300 ${
-        open ? "rotate-180" : "rotate-0"
-      }`}
+      aria-hidden="true"
+      className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
       viewBox="0 0 20 20"
       fill="currentColor"
-      aria-hidden="true"
     >
-      <path
-        fillRule="evenodd"
-        d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-        clipRule="evenodd"
-      />
+      <path d="M5.2 7.2 10 12l4.8-4.8 1.4 1.4-6.2 6.2-6.2-6.2 1.4-1.4Z" />
     </svg>
   );
 }
 
-function OrderNowButton({ mobile = false }: { mobile?: boolean }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg bg-[#E3D5C3] px-4 py-2 text-sm font-medium text-[#2A2725] transition-all duration-300 hover:scale-105 hover:bg-[#C86632] hover:text-[#E3D5C3]";
-
-  return (
-    <a
-      href="https://www.doordash.com/store/nona’s-restaurant-lodi-30510461/40175558/?rwg_token=AE37R_gM84b4JesefYU7BWnKjQeS5Oc-hICYPqvkJV0KgiOzQ0EjK62W6F5QwGx5NbdmnHkSpbARoEgT0UQS65VmgY03W1DvKw==&utm_campaign=gpa"
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${base} ${mobile ? "w-full" : ""}`}
-      aria-label="Order now"
-    >
-      <img
-        src="/assets/imgi_116_logo144.ico"
-        alt="DoorDash"
-        className="h-5 w-5"
-      />
-      <span>Order Now</span>
-    </a>
-  );
-}
-
-export default function MinimalHeader() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOthersOpen, setIsOthersOpen] = useState(false);
-  const [isMobileOthersOpen, setIsMobileOthersOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const pageName = usePathname();
-  const { scroll, setScroll } = useContextData();
-  const { sectionHash, setSectionHash } = useContextData();
+export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const pathname = usePathname();
+  const { setScroll, setSectionHash } = useContextData();
 
   useEffect(() => {
-    const onScroll = () => {
-      setScroll(window.scrollY);
-    };
+    const onScroll = () => setScroll(window.scrollY);
     window.addEventListener("scroll", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, [setScroll]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOthersOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   const closeMenu = () => {
-    setIsOpen(false);
-    setIsOthersOpen(false);
-    setIsMobileOthersOpen(false);
+    setMobileOpen(false);
+    setOpenMenu(null);
   };
 
-  const toggleMobileMenu = () => {
-    setIsOpen((prev) => !prev);
-    setIsMobileOthersOpen(false);
-  };
+  const handleSectionLink = (event: React.MouseEvent<HTMLAnchorElement>, item: DropdownItem) => {
+    if (pathname !== item.page) {
+      setSectionHash(item.id);
+      closeMenu();
+      return;
+    }
 
-  const isScrolledPast120 = scroll > 120;
+    event.preventDefault();
+    document.querySelector(item.id)?.scrollIntoView({ behavior: "smooth" });
+    closeMenu();
+  };
 
   return (
-    <header className="fixed top-0 z-50 w-full transition-transform duration-500 ease-in-out">
-      {/* Topbar Section */}
-      {/* <div
-        className={`hidden md:block overflow-hidden transition-all duration-500 ease-in-out bg-transparent ${
-          isScrolledPast120
-            ? "-translate-y-full max-h-0 opacity-0"
-            : "translate-y-0 max-h-12 opacity-100"
-        }`}
-      >
-        <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 text-xs font-medium text-[#E3D5C3] sm:px-6 lg:px-8">
-          <a
-            href="tel:+12092637023"
-            className="inline-flex items-center gap-2 transition-colors hover:text-[#C86632]"
-          >
-            <svg
-              className="h-3.5 w-3.5 text-[#C86632]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            <span>+1 (209) 263-7023</span>
-          </a>
+    <header className="fixed top-0 z-50 w-full px-2 pt-2 sm:px-3 sm:pt-3">
+      <div className="mx-auto max-w-7xl border-[3px] border-black bg-[#E23D28] shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+        <div className="flex min-h-[4.5rem] items-center justify-between gap-3 px-2 py-2 sm:px-4">
+          <Link href="/" onClick={closeMenu} className="shrink-0" aria-label="Better Call Saul home">
+            <img
+              src="/assets/saul_logo_black.png"
+              alt="Better Call Saul"
+              className="h-11 w-auto object-contain sm:h-14"
+            />
+          </Link>
 
-          <div className="inline-flex items-center gap-2">
-            <svg
-              className="h-3.5 w-3.5 text-[#C86632]"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>Tue — Sun: 11:00 AM – 9:00 PM</span>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Main Navigation Header */}
-      <div
-        className={`w-full transition-all duration-300 ease-in-out ${
-          isScrolledPast120
-            ? "bg-[#2A2725] shadow-lg"
-            : "bg-[#2A2725]/50 backdrop-blur-md"
-        }`}
-      >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 md:grid md:grid-cols-3">
-          {/* Column 1: Logo */}
-          <div className="flex items-center justify-start">
-            <Link href="/" className="flex items-center" onClick={closeMenu}>
-              <img
-                src="/assets/logo.png"
-                alt="Nona's Restaurant"
-                className="h-10 w-10 rounded-full bg-white object-contain shadow-2xl ring-2 ring-white"
-              />
-            </Link>
+          <div className="hidden flex-1 items-center justify-center lg:flex">
+            <p className="font-headline-lg text-2xl uppercase leading-none tracking-tight text-yellow-300 [text-shadow:2px_2px_0_#000] xl:text-3xl">
+              Albuquerque&apos;s <span className="text-white">#1</span> Attorney
+            </p>
           </div>
 
-          {/* Column 2: Centered Desktop Navigation */}
-          <nav className="hidden items-center justify-center gap-8 md:flex">
-            {navItems.map((item) =>
+          <nav className="hidden items-center gap-2 md:flex" aria-label="Main navigation">
+            {navItems.map((item: NavItem) =>
               item.dropdown ? (
-                <div key={item.label} ref={dropdownRef} className="relative">
+                <div className="relative" key={item.label}>
                   <button
                     type="button"
-                    onClick={() => setIsOthersOpen((prev) => !prev)}
-                    className="inline-flex cursor-pointer items-center text-sm font-medium text-[#E3D5C3] transition-colors duration-150 hover:text-[#C86632]"
-                    aria-expanded={isOthersOpen}
+                    onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                    className="flex cursor-pointer items-center gap-1 border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                    aria-expanded={openMenu === item.label}
                   >
                     {item.label}
-                    <ChevronIcon open={isOthersOpen} />
+                    <Chevron open={openMenu === item.label} />
                   </button>
-
-                  {isOthersOpen && (
-                    <div className="absolute left-0 mt-2 w-48 rounded-lg border border-[#E3D5C3]/20 bg-[#2A2725] p-2 shadow-xl">
-                      {item.dropdown.map((dropItem) => (
-                        <Link
-                          key={dropItem.id}
-                          href={
-                            dropItem.name === "Booking" || dropItem.name === "Location"
-                              ? dropItem.id
-                              : pageName === dropItem.page
-                              ? dropItem.id
-                              : dropItem.page
-                          }
-                          onClick={(e) => {
-                            if (pageName === dropItem.page) {
-                              e.preventDefault();
-                              const targetElement = document.querySelector(dropItem.id);
-                              if (targetElement) {
-                                targetElement.scrollIntoView({ behavior: "smooth" });
-                              }
-                              closeMenu();
-                            } else if (dropItem.name !== "Booking" && dropItem.name !== "Location") {
-                              setSectionHash(dropItem.id);
-                              closeMenu();
-                            }
-                          }}
-                          className="block w-full rounded-md px-3 py-2 text-left text-sm text-[#E3D5C3] transition-colors hover:bg-[#C86632] hover:text-white"
-                        >
-                          {dropItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                  {openMenu === item.label && <Dropdown items={item.dropdown} onSelect={handleSectionLink} />}
                 </div>
               ) : (
                 <Link
                   key={item.label}
-                  href={item.page}
-                  className="text-sm font-medium text-[#E3D5C3] transition-colors duration-150 hover:text-[#C86632]"
+                  href={item.page ?? "/"}
+                  onClick={closeMenu}
+                  className="border-[3px] border-black bg-black px-3 py-2 font-label-bold text-xs tracking-wide text-yellow-300 transition-colors hover:bg-yellow-300 hover:text-black"
                 >
                   {item.label}
                 </Link>
-              )
+              ),
             )}
           </nav>
 
-          
-          <div className="hidden items-center justify-end gap-4 md:flex">
-            <OrderNowButton />
-          </div>
+          <a
+            href="tel:+15551234567"
+            className="hidden rotate-[3deg] border-[3px] border-black bg-[#3A5F94] px-4 py-2 font-headline-lg text-xl leading-none tracking-tight text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:rotate-0 hover:shadow-none sm:block"
+          >
+            CALL NOW!
+          </a>
 
-          
           <button
-            onClick={toggleMobileMenu}
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-[#E3D5C3] hover:bg-[#C86632]/20 md:hidden"
-            aria-expanded={isOpen}
+            onClick={() => setMobileOpen((open) => !open)}
+            className="border-[3px] border-black bg-yellow-300 p-2 text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:hidden"
+            aria-expanded={mobileOpen}
             aria-label="Toggle navigation menu"
           >
-            <svg
-              className="h-6 w-6 fill-none stroke-current stroke-2"
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
+            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+              {mobileOpen ? <path d="m6 6 12 12M18 6 6 18" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
             </svg>
           </button>
         </div>
-      </div>
 
-      
-      {isOpen && (
-        <div className="border-t border-[#E3D5C3]/20 bg-[#2A2725] px-4 pb-6 pt-4 md:hidden">
-          <div className="flex flex-col gap-3">
-            <OrderNowButton mobile />
-
-            {navItems.map((item) =>
-              item.dropdown ? (
-                <div key={item.label} className="flex flex-col gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setIsMobileOthersOpen((prev) => !prev)}
-                    className="inline-flex items-center text-left text-base font-medium text-[#E3D5C3] hover:text-[#C86632]"
-                  >
+        {mobileOpen && (
+          <div className="border-t-[3px] border-black bg-yellow-300 p-3 md:hidden">
+            <nav className="flex flex-col gap-2" aria-label="Mobile navigation">
+              {navItems.map((item: NavItem) =>
+                item.dropdown ? (
+                  <div key={item.label}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                      className="flex w-full items-center justify-between border-[3px] border-black bg-black px-3 py-2 text-left font-label-bold text-sm text-yellow-300"
+                      aria-expanded={openMenu === item.label}
+                    >
+                      {item.label}
+                      <Chevron open={openMenu === item.label} />
+                    </button>
+                    {openMenu === item.label && <Dropdown items={item.dropdown} onSelect={handleSectionLink} mobile />}
+                  </div>
+                ) : (
+                  <Link key={item.label} href={item.page ?? "/"} onClick={closeMenu} className="border-[3px] border-black bg-white px-3 py-2 font-label-bold text-sm text-black">
                     {item.label}
-                    <ChevronIcon open={isMobileOthersOpen} />
-                  </button>
-
-                  {isMobileOthersOpen && (
-                    <div className="ml-4 flex flex-col gap-2">
-                      {item.dropdown.map((dropItem) => (
-                        <Link
-                          key={dropItem.id}
-                          href={
-                            dropItem.name === "Booking" || dropItem.name === "Location"
-                              ? dropItem.id
-                              : pageName === dropItem.page
-                              ? dropItem.id
-                              : dropItem.page
-                          }
-                          onClick={(e) => {
-                            if (pageName === dropItem.page) {
-                              e.preventDefault();
-                              const targetElement = document.querySelector(dropItem.id);
-                              if (targetElement) {
-                                targetElement.scrollIntoView({ behavior: "smooth" });
-                              }
-                              closeMenu();
-                            } else if (dropItem.name !== "Booking" && dropItem.name !== "Location") {
-                              setSectionHash(dropItem.id);
-                              closeMenu();
-                            }
-                          }}
-                          className="text-left text-sm text-[#E3D5C3] hover:text-[#C86632]"
-                        >
-                          {dropItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={item.label}
-                  href={item.page}
-                  onClick={closeMenu}
-                  className="text-base font-medium text-[#E3D5C3] hover:text-[#C86632]"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+                  </Link>
+                ),
+              )}
+              <a href="tel:+15551234567" className="border-[3px] border-black bg-[#3A5F94] px-3 py-3 text-center font-headline-lg text-2xl leading-none text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                CALL NOW!
+              </a>
+            </nav>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
+  );
+}
+
+function Dropdown({ items, onSelect, mobile = false }: { items: DropdownItem[]; onSelect: (event: React.MouseEvent<HTMLAnchorElement>, item: DropdownItem) => void; mobile?: boolean }) {
+  return (
+    <div className={`${mobile ? "mt-2" : "absolute left-0 top-full z-10 mt-2 w-56"} border-[3px] border-black bg-white p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+      {items.map((item) => (
+        <Link key={item.id} href={item.page === "/" ? item.id : item.page} onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
+          {item.name}
+        </Link>
+      ))}
+    </div>
   );
 }
