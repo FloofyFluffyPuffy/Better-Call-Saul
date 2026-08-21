@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Archivo_Narrow, Domine, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Home/Header/Header";
+import Header from "@/code/components/Home/Header/Header";
+import { ContextProvider } from "@/code/Contexts/Provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,9 +50,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${archivoNarrow.variable} ${domine.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header/>
-        {children}
-        
+        <ContextProvider>
+          <Header/>
+          {children}
+        </ContextProvider>
         </body>
     </html>
   );
