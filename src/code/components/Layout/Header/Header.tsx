@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContextData } from "@/code/Contexts/Provider";
@@ -50,11 +50,22 @@ function Chevron({ open }: { open: boolean }) {
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [isHidden, setIsHidden] = useState(false);
+  const previousScrollY = useRef(0);
   const pathname = usePathname();
   const { setScroll, setSectionHash } = useContextData();
 
   useEffect(() => {
-    const onScroll = () => setScroll(window.scrollY);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > previousScrollY.current;
+
+      setScroll(currentScrollY);
+      setIsHidden(currentScrollY > 50 && isScrollingDown);
+      previousScrollY.current = currentScrollY;
+    };
+
+    previousScrollY.current = window.scrollY;
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [setScroll]);
@@ -77,7 +88,11 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full px-2 pt-2 sm:px-3 sm:pt-3">
+    <header
+      className={`fixed top-0 z-50 w-full px-2 pt-2 transition-transform duration-300 ease-in-out sm:px-3 sm:pt-3 ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="mx-auto max-w-7xl border-[3px] border-black bg-[#E23D28] shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
         <div className="flex min-h-[4.5rem] items-center justify-between gap-3 px-2 py-2 sm:px-4">
           <Link href="/" onClick={closeMenu} className="shrink-0" aria-label="Better Call Saul home">

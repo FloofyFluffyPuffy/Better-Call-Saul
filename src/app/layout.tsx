@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Archivo_Narrow, Domine, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "@/code/components/Home/Header/Header";
+import Header from "@/code/components/Layout/Header/Header";
 import { ContextProvider } from "@/code/Contexts/Provider";
 
 const geistSans = Geist({

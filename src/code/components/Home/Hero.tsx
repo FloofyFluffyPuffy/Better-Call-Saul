@@ -90,9 +90,9 @@ const HomeHero = () => {
           </div>
 
           <button className="mt-5 w-full bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
-            <img
-              src="/assets/phone.svg"
-              alt=""
+            <span
+              role="img"
+              aria-label="Phone"
               className="phone-icon-yellow h-8 w-8 shrink-0 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] md:h-9 md:w-9"
             />
             <span className="text-yellow-300 font-black uppercase text-2xl md:text-3xl tracking-tight leading-none italic drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">

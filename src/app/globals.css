@@ -110,7 +110,9 @@ body {
 }
 
 .phone-icon-yellow {
-  filter: brightness(0) saturate(100%) invert(84%) sepia(77%) saturate(600%) hue-rotate(350deg) brightness(103%) contrast(95%);
+  background-color: #FFDF20;
+  mask: url("/assets/phone.svg") center / contain no-repeat;
+  -webkit-mask: url("/assets/phone.svg") center / contain no-repeat;
 }
 
 .bg-tie-2 {
