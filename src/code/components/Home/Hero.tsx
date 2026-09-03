@@ -1,10 +1,10 @@
-import React from 'react'
 import { CrimeProps } from '@/code/types/types'
+import ColorText from '@/code/utilities/ColorText'
 
 const CrimeInfo: CrimeProps[] = [
   {
     crime: 'DUI / DWI',
-    description: "Breathalyzer broken? Officer didn't read you your rights?",
+    description: "Breathalyzer broken? Officer on a power trip?",
     btnText: 'Better Call Saul!',
     bgColor: 'bg-green-200',
     btnColor: 'bg-green-500',
@@ -72,24 +72,21 @@ const HomeHero = () => {
           <CrimeCard {...CrimeInfo[1]} tiltClass="rotate-1" />
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-3 w-full max-w-[480px]">
+        <div className="flex translate-y-10 flex-col items-center justify-center gap-3 w-full max-w-[480px]">
           <div className="flex flex-col items-center justify-center w-full py-1">
-            <h1 className="text-yellow-300 font-black uppercase text-xl md:text-2xl leading-none tracking-tight -rotate-1 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-              Albuquerque <span className="text-red-600">#1</span> Criminal Attorney
-            </h1>
-
-            <h2 className="text-red-600 font-black uppercase text-3xl md:text-4xl tracking-wider leading-none italic rotate-1 drop-shadow-[3px_3px_0px_rgba(0,0,0,1)] mt-1">
-              Now On Your Side!
-            </h2>
+                    <div className="flex flex-col items-center justify-center w-full py-1">
+            <ColorText />
+          </div>
           </div>
 
           <div className="border-3 place-items-center p-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white flex justify-center items-center -rotate-1 transition-transform hover:rotate-0">
             <div className='border-black sauloffice bg-18'>
-              <img src="/assets/SaulPoint.png" className="w-100 h-100" />
+              <img src="/assets/SaulPoint.png" className="w-70 h-70" />
             </div>
           </div>
 
-          <button className="mt-5 w-full bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
+
+          <button className="mt-5 w-[90%] bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
             <span
               role="img"
               aria-label="Phone"
