@@ -67,7 +67,7 @@ const TestimonialsWall = () => {
                 {testimonials.map((testimonial) => (
                   <article
                     key={testimonial.name}
-                    className={`${testimonial.rotation} ${testimonial.featured ? "lg:col-span-2" : ""} ${testimonial.cardColor} border-[3px] border-black shadow-[5px_5px_0_#000] transition-transform duration-200 hover:translate-x-1 hover:translate-y-1 hover:rotate-0 hover:shadow-none`}
+                    className={`${testimonial.rotation} ${testimonial.featured ? "lg:col-span-2" : ""} ${testimonial.cardColor} border-[3px] border-black shadow-[5px_5px_0_#000] transition-transform duration-200 hover:rotate-0`}
                   >
                     <div className={`${testimonial.headerColor} flex items-center justify-between gap-3 border-b-[3px] border-black px-3 py-2`}>
                       <h3 className="font-headline-lg text-xl leading-none sm:text-2xl">{testimonial.name}</h3>

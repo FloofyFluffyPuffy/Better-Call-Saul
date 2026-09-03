@@ -89,8 +89,8 @@ export default function Header() {
           </Link>
 
           <div className="flex min-w-0 flex-1 items-center justify-center">
-            <p className="whitespace-nowrap font-headline-lg text-base uppercase leading-none tracking-tight text-yellow-300 [text-shadow:2px_2px_0_#000] sm:text-2xl xl:text-3xl">
-              Albuquerque&apos;s <span className="text-white">#1</span> Attorney
+            <p className="whitespace-nowrap font-headline-lg text-base -rotate-1 uppercase leading-none tracking-wider text-yellow-300 [text-shadow:2px_2px_0_#000] sm:text-2xl xl:text-3xl">
+              Albuquerque&apos;s <span className="text-white">#1</span> <span className="text-[#89ACE7]">Attorney</span>
             </p>
           </div>
 
@@ -124,8 +124,9 @@ export default function Header() {
 
           <a
             href="tel:+15551234567"
-            className="hidden duration-300 rotate-[3deg] border-[3px] border-black bg-[#3A5F94] px-4 py-2 font-headline-lg text-xl leading-none tracking-tight text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px]  hover:shadow-none sm:block"
+            className="hidden duration-300 rotate-[3deg] items-center gap-2 border-[3px] border-black bg-[#3A5F94] px-4 py-2 font-headline-lg text-xl leading-none tracking-tight text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none sm:flex"
           >
+            <img src="/assets/phone.svg" alt="" className="h-5 w-5" />
             CALL NOW!
           </a>
 
@@ -165,7 +166,8 @@ export default function Header() {
                   </Link>
                 ),
               )}
-              <a href="tel:+15551234567" className="border-[3px] border-black bg-[#3A5F94] px-3 py-3 text-center font-headline-lg text-2xl leading-none text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <a href="tel:+15551234567" className="flex items-center justify-center gap-2 border-[3px] border-black bg-[#3A5F94] px-3 py-3 text-center font-headline-lg text-2xl leading-none text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                <img src="/assets/phone.svg" alt="" className="h-6 w-6" />
                 CALL NOW!
               </a>
             </nav>

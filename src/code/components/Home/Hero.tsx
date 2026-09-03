@@ -90,13 +90,11 @@ const HomeHero = () => {
           </div>
 
           <button className="mt-5 w-full bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 -960 960 960" 
-              className="w-8 h-8 md:w-9 md:h-9 fill-yellow-300 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] shrink-0"
-            >
-              <path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 23.5l26 140q2 16-1.5 28.5T368-616L279-527q18 33 40.5 64t49.5 59.5q27 27 58 49.5t63 41.5l90-90q13-13 26-16.5t28 1.5l138 28q15 3 24.5 14t9.5 25v162q0 18-12 30t-30 12Z"/>
-            </svg>
+            <img
+              src="/assets/phone.svg"
+              alt=""
+              className="phone-icon-yellow h-8 w-8 shrink-0 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] md:h-9 md:w-9"
+            />
             <span className="text-yellow-300 font-black uppercase text-2xl md:text-3xl tracking-tight leading-none italic drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
               Better Call Saul!
             </span>

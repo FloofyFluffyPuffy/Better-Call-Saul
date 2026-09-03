@@ -109,6 +109,10 @@ body {
   background-size: 28px 28px;
 }
 
+.phone-icon-yellow {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(77%) saturate(600%) hue-rotate(350deg) brightness(103%) contrast(95%);
+}
+
 .bg-tie-2 {
   background-color: #1b1a1e;
   background-image: repeating-linear-gradient(115deg, #7a6a9e 0 8px, #1b1a1e 8px 30px, #c17a3e 30px 36px, #1b1a1e 36px 58px);
