@@ -15,7 +15,7 @@ export default function Testimonials() {
           <p className="font-label-bold text-xs uppercase tracking-[0.2em]">Want to be on this wall?</p>
           <h2 className="mt-2 font-display-xl text-5xl uppercase leading-none sm:text-7xl">Call Saul.</h2>
           <p className="mx-auto mt-4 max-w-xl font-body-lg font-bold">A free consultation is only one phone call away. Completely confidential. Probably.</p>
-          <Link href="tel:+15551234567" className="mt-7 inline-block rotate-1 border-[3px] border-black bg-[#e23d28] px-5 py-3 font-headline-lg text-2xl text-white shadow-[4px_4px_0_#000] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
+          <Link href="tel:+15551234567" className="mt-7 inline-block rotate-1 border-[3px] border-black bg-[#e23d28] px-5 py-3 font-headline-lg text-2xl text-white shadow-[4px_4px_0_#000] transition-transform duration-300 hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
             DIAL 505-503-4455
           </Link>
         </div>

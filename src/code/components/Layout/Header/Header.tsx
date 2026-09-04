@@ -38,7 +38,7 @@ function Chevron({ open }: { open: boolean }) {
   return (
     <svg
       aria-hidden="true"
-      className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
+      className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
       viewBox="0 0 20 20"
       fill="currentColor"
     >
@@ -176,12 +176,12 @@ export default function Header() {
                     {openMenu === item.label && <Dropdown items={item.dropdown} onSelect={handleSectionLink} mobile />}
                   </div>
                 ) : (
-                  <Link key={item.label} href={item.page ?? "/"} onClick={closeMenu} className="border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
+                  <Link key={item.label} href={item.page ?? "/"} onClick={closeMenu} className="border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-sm text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
                     {item.label}
                   </Link>
                 ),
               )}
-              <a href="tel:+15551234567" className="flex items-center justify-center gap-2 border-[3px] border-black bg-[#3A5F94] px-3 py-3 text-center font-headline-lg text-2xl leading-none text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <a href="tel:+15551234567" className="flex duration-300 items-center justify-center gap-2 border-[3px] border-black bg-[#3A5F94] px-3 py-3 text-center font-headline-lg text-2xl leading-none text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
                 <img src="/assets/phone.svg" alt="" className="h-6 w-6" />
                 CALL NOW!
               </a>

@@ -55,23 +55,22 @@ const GotACase = () => {
           </div>
           </div>
 
-          <div className="border-3 place-items-center p-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-[#F4D35E] flex justify-center items-center -rotate-1 transition-transform hover:rotate-0">
+          <div className="border-3 place-items-center p-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-[#F4D35E] flex justify-center items-center -rotate-1 transition-transform duration-300 hover:rotate-0">
             <div className='border-black sauloffice bg-18'>
               <img src="/assets/SaulPoint.png" className="w-70 h-70" />
             </div>
           </div>
 
 
-          <button className="mt-5 w-[90%] bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
-            <span
-              role="img"
-              aria-label="Phone"
-              className="phone-icon-yellow h-8 w-8 shrink-0 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] md:h-9 md:w-9"
-            />
-            <span className="text-yellow-300 font-black uppercase text-2xl md:text-3xl tracking-tight leading-none italic drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <a
+            href="tel:+15551234567"
+            className="mt-5 flex w-[90%] -rotate-2 duration-300 items-center justify-center gap-3 border-4 border-black bg-[#E23D28] px-4 py-3 text-center font-headline-lg text-2xl leading-none text-white shadow-[4px_4px_0_#000] transition-transform hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none md:text-3xl"
+          >
+            <img src="/assets/phone.svg" alt="" className="h-7 w-7 shrink-0 md:h-8 md:w-8" />
+            <span>
               Better Call Saul!
             </span>
-          </button>
+          </a>
         </div>
 
         <div className="flex flex-col gap-5 w-full max-w-[280px] h-full max-h-[70%] justify-center self-center">

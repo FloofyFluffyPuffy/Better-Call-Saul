@@ -38,7 +38,7 @@ const CrimeInfo: CrimeProps[] = [
 
 const CrimeCard = ({ crime, description, btnText, bgColor, btnColor, titleColor, tiltClass }: CrimeProps & { tiltClass?: string }) => {
   return (
-    <div className={`CrimeCardOuter w-full border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white p-1 transition-transform hover:rotate-0 ${tiltClass || ''}`}>
+    <div className={`CrimeCardOuter w-full border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white p-1 transition-transform duration-300 hover:rotate-0 ${tiltClass || ''}`}>
       <article className="CrimeCardCon w-full h-full border-3 border-black flex flex-col">
         <div className="Title bg-black px-2.5 py-1.5 shrink-0">
           <h2 className={`${titleColor} font-black uppercase italic text-base tracking-tight leading-none`}>
@@ -53,7 +53,7 @@ const CrimeCard = ({ crime, description, btnText, bgColor, btnColor, titleColor,
         </div>
 
         <div className={`Button ${bgColor} px-2.5 py-1.5 shrink-0`}>
-          <button className={`w-full ${btnColor} border-3 border-black hover:text-yellow-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-black uppercase text-sm text-white py-1.5 cursor-pointer hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all`}>
+          <button className={`w-full ${btnColor} border-3 border-black hover:text-yellow-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-black uppercase text-sm text-white py-1.5 cursor-pointer hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-300`}>
             {btnText}
           </button>
         </div>
@@ -79,14 +79,14 @@ const OldHomeHero = () => {
           </div>
           </div>
 
-          <div className="border-3 place-items-center p-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white flex justify-center items-center -rotate-1 transition-transform hover:rotate-0">
+          <div className="border-3 place-items-center p-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white flex justify-center items-center -rotate-1 transition-transform duration-300 hover:rotate-0">
             <div className='border-black sauloffice bg-18'>
               <img src="/assets/SaulPoint.png" className="w-70 h-70" />
             </div>
           </div>
 
 
-          <button className="mt-5 w-[90%] bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
+          <button className="mt-5 w-[90%] bg-red-600 hover:bg-red-500 border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] px-4 py-3 text-center -rotate-2 transition-all duration-300 hover:rotate-0 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] cursor-pointer flex items-center justify-center gap-3">
             <span
               role="img"
               aria-label="Phone"
