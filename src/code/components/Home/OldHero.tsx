@@ -62,7 +62,7 @@ const CrimeCard = ({ crime, description, btnText, bgColor, btnColor, titleColor,
   )
 }
 
-const HomeHero = () => {
+const OldHomeHero = () => {
   return (
     <section className="HomeHero h-screen mx-[0.5%] my-[0.5%] flex justify-center items-center flex-col overflow-hidden">
       <div className="HeroCon w-full max-w-6xl h-full flex justify-between items-center gap-6 px-8 py-3">
@@ -108,4 +108,4 @@ const HomeHero = () => {
   )
 }
 
-export default HomeHero
+export default OldHomeHero

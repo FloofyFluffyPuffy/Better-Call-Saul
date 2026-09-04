@@ -3,8 +3,8 @@ import { Stars } from './Testimonials'
 const TestimonialsHero = () => {
   return (
           <section className="border-b-[3px] border-black px-4 pb-14 pt-36 sm:px-8 sm:pt-40" >
-        <div className="mx-auto py-4 bg-white border-black border-[3px] shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] max-w-6xl text-center" style={{ backgroundImage: "radial-gradient(#171717 1px, transparent 1px)", backgroundSize: "13px 13px" }}>
-          <p className="mb-4 inline-block rotate-[-2deg] border-[3px] border-black bg-[#f4d35e] px-3 py-2 font-label-bold text-xs uppercase tracking-[0.18em] shadow-[4px_4px_0_#000]">
+        <div className="mx-auto py-4 dotBg bg-white border-black border-[3px] shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] max-w-6xl text-center">
+          <p className="mb-4 inline-block rotate-[-2deg] border-[3px] border-black bg-[#FFE16D] px-3 py-2 font-label-bold text-xs uppercase tracking-[0.18em] shadow-[4px_4px_0_#000]">
             Saul Goodman & Associates / Case File 505
           </p>
           <h1 className="font-display-xl text-[clamp(3.4rem,11vw,8rem)] uppercase leading-[0.82] text-[#89ACE7] [text-shadow:5px_5px_0_#000]">
