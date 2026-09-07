@@ -3,7 +3,7 @@ import Link from 'next/link'
 import CrimeCard from '@/code/utilities/CrimeCard'
 import { SurveyDetails } from '@/code/types/types'
 
-const Survey = ({ surveyDetails }: { surveyDetails: SurveyDetails }) => {
+const Survey = ({ surveyDetails, labelTilt }: { surveyDetails: SurveyDetails; labelTilt: string }) => {
   return (
     <div className={`OuterCon mt-14 flex h-160 w-full min-w-0 flex-col border-4 border-black p-2 shadow-[8px_8px_0_0_#000] ${surveyDetails.formColor}`}>
       <div className='Clipper relative z-2 self-center -translate-y-1/3 flex h-[10%] w-[30%] items-center justify-center'>
@@ -18,14 +18,16 @@ const Survey = ({ surveyDetails }: { surveyDetails: SurveyDetails }) => {
 
       <div className='ContentCon self-center h-[88%] w-[94%] overflow-hidden border-4 border-black bg-white p-3'>
         <div className='mb-3 border-b-3 border-black bg-white px-2 py-2'>
-          <h2 className='font-display-xl text-xl uppercase leading-none'>{surveyDetails.law}</h2>
+          <h2 className={`inline-block ${surveyDetails.formColor} ${labelTilt} px-3 py-2 font-display-xl text-xl uppercase leading-none text-white`}>
+            {surveyDetails.law}
+          </h2>
         </div>
         <div className='flex flex-col gap-3'>
           {surveyDetails.details.map((detail) => (
             <CrimeCard key={detail.crime} {...detail} />
           ))}
         </div>
-        <Link href={surveyDetails.page} className='mt-4 block border-4 border-black bg-yellow-300 px-4 py-3 text-center font-black uppercase text-black shadow-[4px_4px_0_0_#000] transition-transform duration-300 hover:translate-x-1 hover:translate-y-1 hover:shadow-none'>
+        <Link href={surveyDetails.page} className={`mt-3 block border-4 border-black ${surveyDetails.formColor} px-4 py-3 text-center font-black uppercase text-black shadow-[4px_4px_0_0_#000] transition-transform duration-300 hover:translate-x-1 hover:translate-y-1 hover:shadow-none`}>
           Find Out More
         </Link>
       </div>

@@ -4,7 +4,7 @@ const SurveyInfo: SurveyDetails[] = [
   {
     law: 'Criminal Law',
     page: '/criminallaw',
-    formColor: 'bg-blue-300',
+    formColor: 'bg-[#FF6467]',
     details: [
       { crime: 'DUI / DWI', description: 'Breathalyzer broken? Officer on a power trip?', btnText: 'Better Call Saul!', bgColor: 'bg-green-200', btnColor: 'bg-green-500', titleColor: 'text-green-400', outerColor: 'bg-green-400' },
       { crime: 'Theft', description: 'You just happened to pick it up!', btnText: 'Better Call Saul!', bgColor: 'bg-purple-200', btnColor: 'bg-purple-500', titleColor: 'text-purple-400', outerColor: 'bg-purple-400' },
@@ -15,7 +15,7 @@ const SurveyInfo: SurveyDetails[] = [
   {
     law: 'Personal Injury',
     page: '/personalinjury',
-    formColor: 'bg-red-200',
+    formColor: 'bg-[#50A2FF]',
     details: [
       { crime: 'Car accident', description: 'Someone else caused the crash?', btnText: 'Better Call Saul!', bgColor: 'bg-red-100', btnColor: 'bg-red-500', titleColor: 'text-red-400', outerColor: 'bg-red-400' },
       { crime: 'Work injury', description: 'Hurt while doing your job and they refuse responssibility?', btnText: 'Better Call Saul!', bgColor: 'bg-yellow-100', btnColor: 'bg-yellow-500', titleColor: 'text-yellow-500', outerColor: 'bg-yellow-500' },
@@ -43,13 +43,13 @@ const GotACase = () => {
     <section className="HomeHero dotBg bg-white h-auto flex items-center flex-col overflow-hidden">
       <div className='Container mt-[2%] bg-white w-[96%] border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] '>
         <h1 className=' py-8 text-center font-display-xl text-[clamp(2.75rem,9vw,5rem)] uppercase leading-[0.82]'>
-          <span className='text-black'>DO YOU HAVE</span> <br />
+          <span className='text-black'>THINK YOU HAVE</span> <br />
           <span className='inline-block mt-[1%] bg-[#E23D28] p-4 rotate-2 text-white'>A CASE?</span>
         </h1>
       </div>
       <div className='grid w-[94%] grid-cols-1 gap-12 px-1 pb-12 lg:grid-cols-3 lg:gap-8'>
-        {SurveyInfo.map((surveyDetails) => (
-          <Survey key={surveyDetails.law} surveyDetails={surveyDetails} />
+        {SurveyInfo.map((surveyDetails, index) => (
+          <Survey key={surveyDetails.law} surveyDetails={surveyDetails} labelTilt={index % 2 === 0 ? '-rotate-1' : 'rotate-1'} />
         ))}
       </div>
     </section>

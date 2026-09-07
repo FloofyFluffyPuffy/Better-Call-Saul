@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Anton, Archivo_Narrow, Domine, Space_Grotesk } from 
 import "./globals.css";
 import Header from "@/code/components/Layout/Header/Header";
 import { ContextProvider } from "@/code/Contexts/Provider";
-
+import Footer from "@/code/components/Layout/Header/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -53,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ContextProvider>
           <Header/>
           {children}
+          <Footer/>
         </ContextProvider>
         </body>
     </html>
