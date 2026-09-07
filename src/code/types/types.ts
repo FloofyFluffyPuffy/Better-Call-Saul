@@ -1,3 +1,10 @@
+export type SurveyDetails = {
+  law: string;
+  page: string;
+  formColor: string;
+  details: CrimeProps[];
+}
+
 export type CrimeProps = {
   crime: string;
   description: string;
@@ -5,6 +12,7 @@ export type CrimeProps = {
   bgColor: string;
   btnColor: string;
   titleColor: string;
+  outerColor: string;
 }
 export interface ContextType {
   scroll: number;

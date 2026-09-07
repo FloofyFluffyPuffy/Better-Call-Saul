@@ -9,6 +9,7 @@ const CrimeInfo: CrimeProps[] = [
     bgColor: 'bg-green-200',
     btnColor: 'bg-green-500',
     titleColor: 'text-green-400',
+    outerColor: 'bg-green-400',
   },
   {
     crime: 'Theft',
@@ -17,6 +18,7 @@ const CrimeInfo: CrimeProps[] = [
     bgColor: 'bg-purple-200',
     btnColor: 'bg-purple-500',
     titleColor: 'text-purple-400',
+    outerColor: 'bg-purple-400',
   },
   {
     crime: 'Drug charges',
@@ -25,6 +27,7 @@ const CrimeInfo: CrimeProps[] = [
     bgColor: 'bg-blue-200',
     btnColor: 'bg-blue-500',
     titleColor: 'text-blue-400',
+    outerColor: 'bg-blue-400',
   },
   {
     crime: 'Assault',
@@ -33,6 +36,7 @@ const CrimeInfo: CrimeProps[] = [
     bgColor: 'bg-red-100',
     btnColor: 'bg-red-500',
     titleColor: 'text-red-400',
+    outerColor: 'bg-red-400',
   },
 ]
 

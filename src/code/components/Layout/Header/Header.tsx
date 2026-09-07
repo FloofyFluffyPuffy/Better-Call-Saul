@@ -10,9 +10,9 @@ const navItems = [
   {
     label: "PRACTICE AREAS",
     dropdown: [
-      { name: "CRIMINAL LAW", id: "#criminaldefense", page: "/criminaldefense" },
-      { name: "ELDER LAW", id: "#elderlaw", page: "/elderlaw" },
+      { name: "CRIMINAL LAW", id: "#criminallaw", page: "/criminallaw" },
       { name: "PERSONAL INJURY", id: "#personalinjury", page: "/personalinjury" },
+      { name: "ELDER LAW", id: "#elderlaw", page: "/elderlaw" },
     ],
   },
   { label: "TESTIMONIALS", page: "/testimonials" },
