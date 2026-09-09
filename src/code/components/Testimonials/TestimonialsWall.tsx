@@ -47,7 +47,7 @@ const testimonials = [
     tagColor: "bg-[#b7b7a4] text-black",
     headerColor: "bg-[#e23d28] text-white",
     charge: "A complicated situation",
-    quote: "He is a criminal lawyer. And exactly what we needed when things got complicated. Very resourceful.",
+    quote: "He is a criminal defense lawyer. And exactly what we needed when things got complicated. Very resourceful.",
     cardColor: "bg-[#e5edf5]",
     rotation: "-rotate-1",
     featured: true,

@@ -56,6 +56,7 @@
 }
 
 body {
+  overflow-x: hidden;
   background-image: var(--background);
   background-size: var(--background-size);
   background-repeat: repeat;
@@ -160,4 +161,37 @@ body {
 .dotBg {
   background-image: radial-gradient(#171717 1px, transparent 1px);
   background-size: 13px 13px;
+}
+
+.testimonial-cta-bg {
+  background-color: #f4d35e;
+  background-image: repeating-linear-gradient(45deg, transparent 0 12px, rgba(226, 61, 40, 0.22) 12px 15px);
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 28s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }

@@ -2,8 +2,8 @@ import { SurveyDetails } from '@/code/types/types'
 import Survey from './Survey'
 const SurveyInfo: SurveyDetails[] = [
   {
-    law: 'Criminal Law',
-    page: '/criminallaw',
+    law: 'Criminal Defense',
+    page: '/criminaldefense',
     formColor: 'bg-[#FF6467]',
     details: [
       { crime: 'DUI / DWI', description: 'Breathalyzer broken? Officer on a power trip?', btnText: 'Better Call Saul!', bgColor: 'bg-green-200', btnColor: 'bg-green-500', titleColor: 'text-green-400', outerColor: 'bg-green-400' },
