@@ -10,9 +10,18 @@ const navItems = [
   {
     label: "PRACTICE AREAS",
     dropdown: [
-      { name: "CRIMINAL DEFENSE", id: "#criminaldefense", page: "/criminaldefense" },
-      { name: "PERSONAL INJURY", id: "#personalinjury", page: "/personalinjury" },
-      { name: "ELDER LAW", id: "#elderlaw", page: "/elderlaw" },
+      { name: "Assault & Battery", id: "#assault-battery", page: "https://www.thebrilliantbrawler.com/assault-battery-lawyer-oklahoma-city/" },
+      { name: "Drug Trafficking", id: "#drug-trafficking", page: "https://www.thebrilliantbrawler.com/drug-trafficking-lawyer-oklahoma-city/" },
+      { name: "Gun Crimes", id: "#gun-crimes", page: "https://www.thebrilliantbrawler.com/gun-crime-lawyer-oklahoma-city/" },
+      { name: "White Collar Crimes", id: "#white-collar-crimes", page: "https://www.thebrilliantbrawler.com/white-collar-crime-lawyer-oklahoma-city/" },
+      { name: "Criminal Investigation", id: "#criminal-investigation", page: "https://www.thebrilliantbrawler.com/criminal-investigation-lawyer-oklahoma-city/" },
+      { name: "Armed Robbery", id: "#armed-robbery", page: "https://www.thebrilliantbrawler.com/armed-robbery-lawyer-oklahoma-city/" },
+      { name: "Federal Offenses", id: "#federal-offenses", page: "https://www.thebrilliantbrawler.com/federal-crime-lawyer-oklahoma-city/" },
+      { name: "Manslaughter", id: "#manslaughter", page: "https://www.thebrilliantbrawler.com/manslaughter-defense-lawyer-oklahoma-city/" },
+      { name: "Murder", id: "#murder", page: "https://www.thebrilliantbrawler.com/murder-defense-lawyer-oklahoma-city/" },
+      { name: "Sex Crimes", id: "#sex-crimes", page: "https://www.thebrilliantbrawler.com/sex-crimes-lawyer-oklahoma-city/" },
+      { name: "Civil Rights", id: "#civil-rights", page: "https://www.thebrilliantbrawler.com/civil-rights-lawyer-oklahoma-city/" },
+      { name: "Other Criminal Matters", id: "#other-criminal-matters", page: "https://www.thebrilliantbrawler.com/criminal-defense-lawyer-okc/" },
     ],
   },
   { label: "TESTIMONIALS", page: "/testimonials" },
@@ -75,7 +84,11 @@ export default function Header() {
     setOpenMenu(null);
   };
 
-  const handleSectionLink = (event: React.MouseEvent<HTMLAnchorElement>, item: DropdownItem) => {
+  const handleSectionLink = (event: React.MouseEvent<HTMLElement>, item: DropdownItem) => {
+    if (item.page.startsWith("http")) {
+      return;
+    }
+
     if (pathname !== item.page) {
       setSectionHash(item.id);
       closeMenu();
@@ -193,14 +206,26 @@ export default function Header() {
   );
 }
 
-function Dropdown({ items, onSelect, mobile = false }: { items: DropdownItem[]; onSelect: (event: React.MouseEvent<HTMLAnchorElement>, item: DropdownItem) => void; mobile?: boolean }) {
+function Dropdown({ items, onSelect, mobile = false }: { items: DropdownItem[]; onSelect: (event: React.MouseEvent<HTMLElement>, item: DropdownItem) => void; mobile?: boolean }) {
   return (
     <div className={`${mobile ? "mt-2" : "absolute left-0 top-full z-10 mt-2 w-56"} border-[3px] border-black bg-white p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
-      {items.map((item) => (
-        <Link key={item.id} href={item.page === "/" ? item.id : item.page} onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
-          {item.name}
-        </Link>
-      ))}
+      {items.map((item) => {
+        const isExternal = item.page.startsWith("http");
+
+        if (isExternal) {
+          return (
+            <a key={item.id} href={item.page} onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
+              {item.name}
+            </a>
+          );
+        }
+
+        return (
+          <Link key={item.id} href={item.page === "/" ? item.id : item.page} onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
+            {item.name}
+          </Link>
+        );
+      })}
     </div>
   );
 }
