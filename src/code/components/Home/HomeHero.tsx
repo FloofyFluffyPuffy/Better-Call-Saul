@@ -2,14 +2,14 @@ import React from 'react'
 
 const HomeHero = () => {
   return (
-      <section className="px-4 w-full h-[90vh] overflow-hidden border-b-3 pb-14 pt-36 sm:px-8 sm:pt-40" >
+      <section className="SaulOfficeBG px-4 w-full h-screen overflow-hidden border-b-3 pb-14 pt-36 sm:px-8 sm:pt-40" >
         <div className="mx-auto py-4  max-w-6xl text-center">
           <p className="mb-4 inline-block -translate-x-30 rotate-[-2deg] border-[3px] border-black bg-[#FFE16D] #E23D28 px-3 py-2 font-label-bold text-xs uppercase tracking-[0.40em] shadow-[4px_4px_0_#000]">
             Saul Goodman & Associates
           </p>
           <h1 className="relative font-display-xl text-[clamp(3.4rem,11vw,8rem)] uppercase leading-[0.82] text-[#89ACE7] [text-shadow:5px_5px_0_#000]">
            <span className="relative inline-block z-10 -translate-x-42">Legal Trouble?</span><br />
-           <img src="/assets/saulCoffee.png" alt="Saul Goodman holding a coffee" className="pointer-events-none absolute left-1/2 top-[calc(34%+1px)] z-20 h-124 w-124 -translate-y-55 translate-x-30" />
+           <img src="/assets/saulCoffee.png" alt="Saul Goodman holding a coffee" className="pointer-events-none absolute left-1/2 top-[calc(34%+1px)] z-20 h-140 w-140 -translate-y-55 translate-x-30" />
            <span className="relative z-30"><span className="text-[#FFDF20]">"<span>Better Call </span></span><span className="text-[#E23D28]"><span>Saul!</span>"</span></span>
           </h1>
           <a

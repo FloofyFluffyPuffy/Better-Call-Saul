@@ -1,11 +1,11 @@
 import Image from "next/image";
 import HomeHero from "@/code/components/Home/HomeHero";
-import GotACase from "@/code/components/Home/GotACase";
+import HomePractices from "@/code/components/Home/HomePractices";
 export default function Home() {
   return (
     <main>
       <HomeHero/>
-      <GotACase/>
+      <HomePractices/>
     </main>
   );
 }
