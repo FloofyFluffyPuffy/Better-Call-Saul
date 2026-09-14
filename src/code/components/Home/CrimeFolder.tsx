@@ -1,46 +1,59 @@
 import React from 'react'
 
 type CrimeFolderProps = {
-  title: string
+  title: string;
+  tab: number
 
 }
 
 const CrimeFolders: CrimeFolderProps[] = [
   {
     title: 'Assault & Battery',
+    tab: 1
   },
   {
     title: 'Drug Trafficking',
+     tab: 2
   },
   {
     title: 'Gun Crimes',
+     tab: 3
   },
   {
     title: 'White Collar',
+     tab: 4
   },
   {
     title: 'Criminal Investigation',
+     tab: 5
   },
   {
     title: 'Armed Robbery',
+     tab: 6
   },
   {
     title: 'Federal Offenses',
+     tab: 7
   },
   {
     title: 'Man-slaughter',
+     tab: 8
   },
   {
     title: 'Murder',
+     tab: 9
   },
   {
     title: 'Sex Crimes',
+     tab: 10
   },
   {
     title: 'Civil Rights',
+     tab: 11
   },
   {
     title: 'Other Matters',
+     tab: 12
   },
 ]
 
