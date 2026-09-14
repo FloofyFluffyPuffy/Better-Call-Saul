@@ -97,37 +97,37 @@ const CrimeFolders: CrimeFolderProps[] = [
 
 const CrimeFolder = () => {
   return (
-    <main className=' dotBg h-200vh mx-4'>
-      <div className='grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 p-8 gap-8'>
+    <main className='dotBg h-200vh mx-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 p-8 gap-4 gap-y-8'>
         {CrimeFolders.map((item, index) => (
-          <article className='relative group '  data-purpose='case-card' key={item.tab}>
-            <div className='CrimeTab  absolute rounded-t-md z-1 border-b-0 left-6 -top-5 border-4 border-black bg-[#F6E6B4] w-24 h-6 text-center font-black leading-5'>
+          <article className='relative group' data-purpose='case-card' key={item.tab}>
+            <div className='CrimeTab absolute rounded-t-md z-1 border-b-0 left-6 -top-5 border-4 border-black bg-[#F6E6B4] w-24 h-6 text-center font-black leading-5'>
               {item.tab}
             </div>
-            <div className='ContentCon bg-[#F6E6B4] border-4 border-black shadow-[5px_5px_0_#000] p-4 relative pt-5 flex flex-col h-[290px]'>
+            <div className='ContentCon bg-[#F6E6B4] border-4 border-black shadow-[5px_5px_0_#000] p-3 relative pt-5 flex flex-col h-[250px]'>
               <div className='ImageCon absolute -top-5 -right-5 w-24 h-24 bg-white border-2 border-black shadow-brutal-sm p-1.5 rotate-6 z-20'>
                   <img src="/assets/SaulOfficeBG.png" className='border-2 w-full h-full' alt="" />
               </div>
 
               <div>
-                <h1 className='text-xl mt-5 border-t-3 border-b-3 text-start font-black uppercase leading-tight max-w-[124px]'>
+                <h1 className='text-[15px] mt-4 border-t-3 border-b-3 text-start font-black uppercase leading-tight max-w-[110px]'>
                   {item.title}
                 </h1>
               </div>
 
-              <div className='Confidential border-[#E23D28] text-[#E23D28] tracking-[0.30em] border-dotted border-4 mt-6 text-center -rotate-3 text-md font-black uppercase'>
+              <div className='Confidential border-[#E23D28] text-[#E23D28] tracking-[0.20em] border-dotted border-2 mt-3 text-center -rotate-3 text-[10px] font-black uppercase'>
                 CONFIDENTIAL
               </div>
 
-              <div className='PenaltyCon mt-6 border-2 border-dotted border-black px-3 py-2'>
-                <div className='flex items-center justify-between gap-4 text-black font-black uppercase leading-none tracking-tight'>
-                  <span className='text-[11px] sm:text-[12px]'>EST. PRISON:</span>
-                  <span className='text-[11px] sm:text-[12px] text-right'>{item.estPrison}</span>
+              <div className='PenaltyCon mt-3 border-2 border-dotted border-black px-2 py-1'>
+                <div className='flex items-center justify-between gap-2 text-black font-black uppercase leading-none tracking-tight'>
+                  <span className='text-[9px] sm:text-[10px]'>EST. PRISON:</span>
+                  <span className='text-[9px] sm:text-[10px] text-right'>{item.estPrison}</span>
                 </div>
                 <div className='DotDivider my-1 border-t-2 border-dotted border-black'></div>
-                <div className='flex items-center justify-between gap-4 text-black font-black uppercase leading-none tracking-tight'>
-                  <span className='text-[11px] sm:text-[12px]'>STAT. FINE:</span>
-                  <span className='text-[11px] sm:text-[12px] text-[#E23D28] text-right'>{item.statFine}</span>
+                <div className='flex items-center justify-between gap-2 text-black font-black uppercase leading-none tracking-tight'>
+                  <span className='text-[9px] sm:text-[10px]'>STAT. FINE:</span>
+                  <span className='text-[9px] sm:text-[10px] text-[#E23D28] text-right'>{item.statFine}</span>
                 </div>
               </div>
 
