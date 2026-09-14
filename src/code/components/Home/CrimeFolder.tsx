@@ -2,83 +2,133 @@ import React from 'react'
 
 type CrimeFolderProps = {
   title: string;
-  tab: number
-
+  titleBgColor: string;
+  tab: string;
+  estPrison: string;
+  statFine: string;
 }
 
 const CrimeFolders: CrimeFolderProps[] = [
   {
     title: 'Assault & Battery',
-    tab: 1
+    tab: '01',
+    estPrison: '1 - 5 YRS STATE',
+    statFine: '$25,000 + COURT COSTS',
+    titleBgColor: '#E23D28',
   },
   {
     title: 'Drug Trafficking',
-     tab: 2
+    tab: '02',
+    estPrison: '5 - 20 YRS FED',
+    statFine: '$500,000 + ASSETS',
+    titleBgColor: '#16A34A',
   },
   {
     title: 'Gun Crimes',
-     tab: 3
+    tab: '03',
+    estPrison: '2 - 15 YRS FED',
+    statFine: '$250,000 + FORFEITURE',
+    titleBgColor: '#2563EB',
   },
   {
     title: 'White Collar',
-     tab: 4
+    tab: '04',
+    estPrison: '1 - 10 YRS FED',
+    statFine: '$1,000,000 + RESTITUTION',
+    titleBgColor: '#FACC15',
   },
   {
     title: 'Criminal Investigation',
-     tab: 5
+    tab: '05',
+    estPrison: '0 - 5 YRS STATE',
+    statFine: '$50,000 + PROBATION',
+    titleBgColor: '#A855F7',
   },
   {
     title: 'Armed Robbery',
-     tab: 6
+    tab: '06',
+    estPrison: '5 - 20 YRS FED',
+    statFine: '$250,000 + RESTITUTION',
+    titleBgColor: '#E23D28',
   },
   {
     title: 'Federal Offenses',
-     tab: 7
+    tab: '07',
+    estPrison: '5 - 20 YRS FED',
+    statFine: '$500,000 + ASSETS',
+    titleBgColor: '#2563EB',
   },
   {
     title: 'Man-slaughter',
-     tab: 8
+    tab: '08',
+    estPrison: '4 - 15 YRS STATE',
+    statFine: '$100,000 + DAMAGES',
+    titleBgColor: '#E23D28',
   },
   {
     title: 'Murder',
-     tab: 9
+    tab: '09',
+    estPrison: 'LIFE / DEATH',
+    statFine: '$250,000 + RESTITUTION',
+    titleBgColor: '#E23D28',
   },
   {
     title: 'Sex Crimes',
-     tab: 10
+    tab: '10',
+    estPrison: '10 - 25 YRS STATE',
+    statFine: '$100,000 + REGISTRY',
+    titleBgColor: '#A855F7',
   },
   {
     title: 'Civil Rights',
-     tab: 11
+    tab: '11',
+    estPrison: '1 - 10 YRS FED',
+    statFine: '$250,000 + DAMAGES',
+    titleBgColor: '#16A34A',
   },
   {
     title: 'Other Matters',
-     tab: 12
+    tab: '12',
+    estPrison: '0 - 10 YRS STATE',
+    statFine: '$25,000 + COURT COSTS',
+    titleBgColor: '#FACC15',
   },
 ]
 
 const CrimeFolder = () => {
   return (
-    <main className='max-w-7xl mx-auto p-4 md:p-8 my-4'>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+    <main className=' dotBg h-200vh mx-4'>
+      <div className='grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 p-8 gap-8'>
         {CrimeFolders.map((item, index) => (
-          <article className='relative group' data-purpose='case-card' key={item.tab}>
+          <article className='relative group '  data-purpose='case-card' key={item.tab}>
+            <div className='CrimeTab  absolute rounded-t-md z-1 border-b-0 left-6 -top-5 border-4 border-black bg-[#F6E6B4] w-24 h-6 text-center font-black leading-5'>
+              {item.tab}
+            </div>
             <div className='ContentCon bg-[#F6E6B4] border-4 border-black shadow-[5px_5px_0_#000] p-4 relative pt-5 flex flex-col h-[290px]'>
               <div className='ImageCon absolute -top-5 -right-5 w-24 h-24 bg-white border-2 border-black shadow-brutal-sm p-1.5 rotate-6 z-20'>
-                  <img src="/assets/SaulOfficeBG.png" className='w-full h-full' alt="" />
+                  <img src="/assets/SaulOfficeBG.png" className='border-2 w-full h-full' alt="" />
               </div>
 
               <div>
-
-                <h1 className='text-xl mt-5 border-t-3 border-b-3 text-start font-black  uppercase leading-tight text-black max-w-[124px]'>
+                <h1 className='text-xl mt-5 border-t-3 border-b-3 text-start font-black uppercase leading-tight max-w-[124px]'>
                   {item.title}
                 </h1>
               </div>
 
-              <div className='PenaltyCon mt-6 bg-amber-300'>
-                <h2>EST Prison Time: 5 - 20 Years</h2>
-                <div className='DotDivider'>-----------</div>
-                <h2>EST FINE:</h2>
+              <div className='Confidential border-[#E23D28] text-[#E23D28] tracking-[0.30em] border-dotted border-4 mt-6 text-center -rotate-3 text-md font-black uppercase'>
+                CONFIDENTIAL
+              </div>
+
+              <div className='PenaltyCon mt-6 border-2 border-dotted border-black px-3 py-2'>
+                <div className='flex items-center justify-between gap-4 text-black font-black uppercase leading-none tracking-tight'>
+                  <span className='text-[11px] sm:text-[12px]'>EST. PRISON:</span>
+                  <span className='text-[11px] sm:text-[12px] text-right'>{item.estPrison}</span>
+                </div>
+                <div className='DotDivider my-1 border-t-2 border-dotted border-black'></div>
+                <div className='flex items-center justify-between gap-4 text-black font-black uppercase leading-none tracking-tight'>
+                  <span className='text-[11px] sm:text-[12px]'>STAT. FINE:</span>
+                  <span className='text-[11px] sm:text-[12px] text-[#E23D28] text-right'>{item.statFine}</span>
+                </div>
               </div>
 
             </div>
