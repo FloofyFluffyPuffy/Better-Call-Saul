@@ -38,7 +38,7 @@ const SurveyInfo: SurveyDetails[] = [
 
 
 
-const homePracticesOld = () => {
+const HomePracticesOld = () => {
   return (
     <section className="HomeHero  h-auto flex items-center flex-col overflow-hidden">
       <div className='Container mt-[2%] dotBg bg-white w-[96%] border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] '>
@@ -65,4 +65,4 @@ const homePracticesOld = () => {
   )
 }
 
-export default homePracticesOld
+export default HomePracticesOld

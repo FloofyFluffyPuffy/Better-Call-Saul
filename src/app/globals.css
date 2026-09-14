@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+.tape-strip {
+  background: rgba(254, 240, 138, 0.75);
+  backdrop-filter: blur(1px);
+  border-left: 1px dashed rgba(0,0,0,0.15);
+  border-right: 1px dashed rgba(0,0,0,0.15);
+}
+
 :root {
   --background: 
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath fill='%23ffffff' fill-opacity='0.5' d='M14 3l1.8 5.3L21 10l-4.4 3.5L18 19l-4-3.1L10 19l1.4-5.5L7 10l5.2-1.7z'/%3E%3C/svg%3E"),

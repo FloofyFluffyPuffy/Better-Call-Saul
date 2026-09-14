@@ -5,6 +5,12 @@ export type SurveyDetails = {
   details: CrimeProps[];
 }
 
+export type SurveyDetailsNew = {
+  law: string;
+  page: string;
+  formColor: string;
+}
+
 export type CrimeProps = {
   crime: string;
   description: string;
