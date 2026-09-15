@@ -10,18 +10,18 @@ const navItems = [
   {
     label: "PRACTICE AREAS",
     dropdown: [
-      { name: "Assault & Battery", id: "#assault-battery", page: "https://www.thebrilliantbrawler.com/assault-battery-lawyer-oklahoma-city/" },
-      { name: "Drug Trafficking", id: "#drug-trafficking", page: "https://www.thebrilliantbrawler.com/drug-trafficking-lawyer-oklahoma-city/" },
-      { name: "Gun Crimes", id: "#gun-crimes", page: "https://www.thebrilliantbrawler.com/gun-crime-lawyer-oklahoma-city/" },
-      { name: "White Collar Crimes", id: "#white-collar-crimes", page: "https://www.thebrilliantbrawler.com/white-collar-crime-lawyer-oklahoma-city/" },
-      { name: "Criminal Investigation", id: "#criminal-investigation", page: "https://www.thebrilliantbrawler.com/criminal-investigation-lawyer-oklahoma-city/" },
-      { name: "Armed Robbery", id: "#armed-robbery", page: "https://www.thebrilliantbrawler.com/armed-robbery-lawyer-oklahoma-city/" },
-      { name: "Federal Offenses", id: "#federal-offenses", page: "https://www.thebrilliantbrawler.com/federal-crime-lawyer-oklahoma-city/" },
-      { name: "Manslaughter", id: "#manslaughter", page: "https://www.thebrilliantbrawler.com/manslaughter-defense-lawyer-oklahoma-city/" },
-      { name: "Murder", id: "#murder", page: "https://www.thebrilliantbrawler.com/murder-defense-lawyer-oklahoma-city/" },
-      { name: "Sex Crimes", id: "#sex-crimes", page: "https://www.thebrilliantbrawler.com/sex-crimes-lawyer-oklahoma-city/" },
-      { name: "Civil Rights", id: "#civil-rights", page: "https://www.thebrilliantbrawler.com/civil-rights-lawyer-oklahoma-city/" },
-      { name: "Other Criminal Matters", id: "#other-criminal-matters", page: "https://www.thebrilliantbrawler.com/criminal-defense-lawyer-okc/" },
+      { name: "Assault & Battery", id: "#assault-battery", page: "/assault-battery" },
+      { name: "Drug Trafficking", id: "#drug-trafficking", page: "/drug-trafficking" },
+      { name: "Gun Crimes", id: "#gun-crimes", page: "/gun-crimes" },
+      { name: "White Collar Crimes", id: "#white-collar-crimes", page: "/white-collar-crimes" },
+      { name: "Criminal Investigation", id: "#criminal-investigation", page: "/criminal-investigation" },
+      { name: "Armed Robbery", id: "#armed-robbery", page: "/armed-robbery" },
+      { name: "Federal Offenses", id: "#federal-offenses", page: "/federal-offenses" },
+      { name: "Manslaughter", id: "#manslaughter", page: "/manslaughter" },
+      { name: "Murder", id: "#murder", page: "/murder" },
+      { name: "Sex Crimes", id: "#sex-crimes", page: "/sex-crimes" },
+      { name: "Civil Rights", id: "#civil-rights", page: "/civil-rights" },
+      { name: "Other Criminal Matters", id: "#other-criminal-matters", page: "/other-criminal-matters" },
     ],
   },
   { label: "TESTIMONIALS", page: "/testimonials" },
@@ -129,7 +129,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                    className="flex cursor-pointer duration-300 items-center gap-1 border-[3px] border-black bg-yellow-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                    className="flex cursor-pointer duration-300 items-center gap-1 border-[3px] border-black bg-[#FFD700] px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
                     aria-expanded={openMenu === item.label}
                   >
                     {item.label}
@@ -142,7 +142,7 @@ export default function Header() {
                   key={item.label}
                   href={item.page ?? "/"}
                   onClick={closeMenu}
-                  className="border-[3px] border-black bg-yellow-300 duration-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                  className="border-[3px] border-black bg-[#FFD700] duration-300 px-3 py-2 font-label-bold text-xs tracking-wide text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                 >
                   {item.label}
                 </Link>
@@ -161,7 +161,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen((open) => !open)}
-            className="border-[3px] border-black bg-yellow-300 p-2 text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:hidden"
+            className="border-[3px] border-black bg-[#FFD700] p-2 text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:hidden"
             aria-expanded={mobileOpen}
             aria-label="Toggle navigation menu"
           >
@@ -172,7 +172,7 @@ export default function Header() {
         </div>
 
         {mobileOpen && (
-          <div className="border-t-[3px] border-black bg-yellow-300 p-3 md:hidden">
+          <div className="border-t-[3px] border-black bg-[#FFD700] p-3 md:hidden">
             <nav className="flex flex-col gap-2" aria-label="Mobile navigation">
               {navItems.map((item: NavItem) =>
                 item.dropdown ? (
@@ -214,14 +214,14 @@ function Dropdown({ items, onSelect, mobile = false }: { items: DropdownItem[]; 
 
         if (isExternal) {
           return (
-            <a key={item.id} href={item.page} onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
+            <a key={item.id} href={item.page} rel="noopener noreferrer" onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
               {item.name}
             </a>
           );
         }
 
         return (
-          <Link key={item.id} href={item.page === "/" ? item.id : item.page} onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
+          <Link key={item.id} href={item.page === "/" ? item.id : item.page} rel="noopener noreferrer" onClick={(event) => onSelect(event, item)} className="block border-b-2 border-black px-2 py-2 font-label-bold text-xs text-black last:border-b-0 hover:bg-[#E23D28] hover:text-white">
             {item.name}
           </Link>
         );

@@ -97,6 +97,16 @@ body {
   );
 }
 
+.yellowBlackBg{
+  background: repeating-linear-gradient(
+    135deg,
+    #FFD700 0px,
+    #FFD700 16px,
+    #000000 16px,
+    #000000 32px
+  );
+}
+
 .notebook-rule-bg {
   background-color: #f8f4e8;
   background-image:
@@ -206,6 +216,13 @@ body {
 .SaulOfficeBG{
     background-image: url('/assets/SaulOfficeBG.png');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.HomePracticewaes{
+    background-image: url('/assets/mugshotBG.png');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
