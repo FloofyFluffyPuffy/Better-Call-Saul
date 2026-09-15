@@ -100,8 +100,8 @@ body {
 .yellowBlackBg{
   background: repeating-linear-gradient(
     135deg,
-    #FFD700 0px,
-    #FFD700 16px,
+    #E23D28 0px,
+    #E23D28 16px,
     #000000 16px,
     #000000 32px
   );

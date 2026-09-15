@@ -128,7 +128,7 @@ const CrimeFolder = () => {
       <div className='grid sm:grid-cols-2 lg:grid-cols-6 px-8 gap-4 gap-y-10'>
         {CrimeFolders.map((item, index) => (
           <Link href={item.page} rel='noopener noreferrer' className='relative group scale-90 hover:scale-100 transition-all duration-300 cursor-pointer' data-purpose='case-card' key={item.tab}>
-            <div className='CrimeTab absolute rounded-t-md z-1 border-b-0 left-4 -top-5 border-4 border-black bg-[#F6E6B4] w-24 h-6 text-center font-black leading-5'>
+            <div className='CrimeTab absolute rounded-t-md z-1 border-b-0 left-4 translate-y-[0.1px] -top-5 border-4 border-black bg-[#F6E6B4] w-24 h-6 text-center font-black leading-5'>
               {item.tab}
             </div>
             <div className='ContentCon flex justify-center items-center bg-[#F6E6B4] border-4 border-black shadow-[5px_5px_0_#000] p-3 relative pt-5 flex-col h-[260px]'>
