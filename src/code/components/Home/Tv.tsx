@@ -29,16 +29,16 @@ const Tv = () => {
                 
 
                 <div className="tv-screen-content relative z-10 flex flex-col p-4 sm:p-6">
-                  <div className="tv-channel-block">
-                    <div className="tv-channel-row translate-x-240 flex items-center justify-between text-[10px] font-black uppercase tracking-[0.28em] text-[#f7f4e8] drop-shadow-[2px_1px_0_rgba(0,0,0,0.8)] sm:text-[11px]">
+                  <div className="tv-channel-block flex flex-col items-end">
+                    <div className="tv-channel-row flex items-center text-[10px] font-black uppercase tracking-[0.28em] text-[#f7f4e8] drop-shadow-[2px_1px_0_rgba(0,0,0,0.8)] sm:text-[11px]">
                       <span>Channel 4</span>
                     </div>
 
-                    <div className="tv-logo-row translate-x-118 rotate-14 flex justify-center">
+                    <div className="tv-logo-row -mr-5 flex">
                       <img
                         src="/assets/saul_logo_black.png"
                         alt="Better Call Saul"
-                        className="h-18 w-30 object-contain"
+                        className="h-20 rotate-12 w-32 object-contain"
                       />
                     </div>
                   </div>
