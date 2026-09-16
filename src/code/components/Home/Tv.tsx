@@ -43,7 +43,7 @@ const Tv = () => {
                     </div>
                   </div>
 
-                  <div className="tv-content-slot w-full">
+                  <div className="tv-content-slot -mt-24 w-full">
                     <HomePractices/>
                   </div>
 
