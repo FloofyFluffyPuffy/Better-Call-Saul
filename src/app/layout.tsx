@@ -53,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ContextProvider>
           <Header/>
           {children}
-          <Footer/>
+          {/* <Footer/> */}
         </ContextProvider>
         </body>
     </html>

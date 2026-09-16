@@ -112,7 +112,7 @@ export default function Header() {
             <img
               src="/assets/saul_logo_black.png"
               alt="Better Call Saul"
-              className="h-11 w-auto object-contain sm:h-14"
+              className="h-14 w-24"
             />
           </Link>
 
